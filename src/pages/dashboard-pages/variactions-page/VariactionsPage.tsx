@@ -1,4 +1,3 @@
-import React from "react";
 import TableVacation from "./tables/TableVacation";
 import ColumnChartCategory from "./charts/ColumnChartCategory";
 import { useQuery } from "@tanstack/react-query";
