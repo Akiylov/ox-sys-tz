@@ -1,6 +1,7 @@
 import { VariationsResponse } from "@/services/variactions-controller/types";
 import { createChartConfig } from "@/utils/createConfigChart";
 import { useQuery } from "@tanstack/react-query";
+import { Spin } from "antd";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import React from "react";
@@ -97,7 +98,22 @@ const ColumnChartCategory = ({
       <div style={{ marginBottom: 10 }}>
         <h3>Category soni </h3>
       </div>
-      <HighchartsReact highcharts={Highcharts} options={options} />
+      {resAllVariations.isLoading ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: 250,
+          }}
+        >
+          <div>
+            <Spin size="small" />
+          </div>
+        </div>
+      ) : (
+        <HighchartsReact highcharts={Highcharts} options={options} />
+      )}
     </div>
   );
 };
